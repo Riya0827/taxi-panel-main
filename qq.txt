@@ -1,0 +1,19 @@
+<script>
+  function submitForm() {
+      const form = document.getElementById('scheduleassign');
+      const formData = new FormData(form);
+  
+      fetch(`/rideStatus/${records[0].order_number}/${records[0].trip_status}`, {
+          method: 'POST',
+          body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log('Server response:', data);
+      })
+      .catch(error => {
+          console.error('Error:', error);
+
+      });
+  }
+  </script>
